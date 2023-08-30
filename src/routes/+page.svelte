@@ -1,59 +1,51 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Scanner from './Scanner.svelte';
+	import Dock from './Dock.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Freshie Walk</title>
+	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
-<section>
-	<h1 class="text-3xl font-bold underline">
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+<div class="w-[1080px] h-[1920px] relative">
+	<div class="w-[1080px] h-[2276px] left-0 top-[-174px] absolute">
+		<div
+			class="w-[1000px] h-[870px] left-[54px] top-[1406px] absolute bg-violet-700 bg-opacity-50 rounded-full blur-[1000px]"
+		/>
+	</div>
+	<img
+		class="w-[823px] h-[897px] left-[128px] top-[463px] absolute rounded-[20px]"
+		src="https://via.placeholder.com/823x897"
+		alt=""
+	/>
+	<div class="w-[908px] h-[380px] left-[86px] top-[1666px] absolute">
+		<div
+			class="w-[908px] h-[313px] left-0 top-[67px] absolute bg-violet-50 bg-opacity-50 rounded-[40px]"
+		/>
+		<div class="w-[241px] h-[254px] left-[42px] top-0 absolute bg-white rounded-[30px] shadow" />
+		<div class="w-[241px] h-[254px] left-[333px] top-0 absolute bg-white rounded-[30px] shadow" />
+		<div
+			class="w-[241px] h-[247px] left-[624px] top-[7px] absolute bg-white rounded-[30px] shadow"
+		/>
+	</div>
+	<div class="w-[453px] h-[100px] left-[313px] top-[1430px] absolute">
+		<div class="w-[453px] h-[100px] left-0 top-0 absolute bg-white bg-opacity-50 rounded-[20px]" />
+		<div class="left-[151px] top-[17px] absolute text-black text-opacity-50 text-[50px] font-bold">
+			Claim
+		</div>
+	</div>
+	<div class="w-[374px] h-[100px] left-[134px] top-[294px] absolute">
+		<div class="left-[137px] top-[27px] absolute text-teal-950 text-[32px] font-light">
+			Brymer Meneses
+		</div>
+		<img
+			class="w-[100px] h-[100px] left-0 top-0 absolute rounded-full"
+			src="https://via.placeholder.com/100x100"
+			alt=""
+		/>
+	</div>
+	<div class="left-[223px] top-[81px] absolute text-teal-950 text-8xl font-normal">
+		Freshie Walk
+	</div>
+</div>
