@@ -39,9 +39,9 @@
 <div class="container">
 	<div id="reader" />
 	{#if scanning}
-		<button on:click={stopScanning}>Stop Scanning</button>
+		<button on:click|once={stopScanning}>Stop Scanning</button>
 	{:else}
-		<button on:click={startScanning}>Start Scanning</button>
+		<button on:click|once={startScanning}>Start Scanning</button>
 	{/if}
 </div>
 
