@@ -15,33 +15,52 @@
 </svelte:head>
 
 <div class="container">
-	<h1>Freshie Walk</h1>
-	<button on:click={handleSignIn}>
-		Sign in with Google
-		<img src={google} alt="" />
-	</button>
+	<div class="card">
+		<h1>Freshie Walk</h1>
+		<button on:click={handleSignIn}>
+			Sign in with Google
+			<img src={google} alt="" />
+		</button>
+	</div>
 </div>
 
 <style>
 	.container {
-		margin: auto;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+
+	.card {
+		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin: auto;
+		padding: 26px;
+		width: 360px;
+		height: 360px;
 		gap: 26px;
+		background: rgba(255, 255, 255, 0.4);
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		backdrop-filter: blur(9px);
+		-webkit-backdrop-filter: blur(9px);
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.18);
 	}
 
-	.container h1 {
+	.card h1 {
 		color: rgba(57, 69, 92, 0.8);
-		font-size: 48px;
+		font-size: 34px;
 		font-family: Poppins;
 		font-weight: 700;
 		word-wrap: break-word;
 	}
 
 	button {
-		all: unset;
 		display: flex;
 		gap: 26px;
 		padding: 26px;
