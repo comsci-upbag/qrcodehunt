@@ -40,6 +40,7 @@
 		<Scanner />
 	</div>
 	<button on:click={onClaim}>Claim</button>
+	<Dock />
 </div>
 
 <style>
