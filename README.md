@@ -1,4 +1,4 @@
-# freshiewalk
+# [freshiewalk](https://freshiewalk.vercel.app)
 
 COMSCI&#8203;@UP.BAG's project for the FreshieWalk 2023 at the University of the Philippines Baguio.
 
