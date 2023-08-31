@@ -6,7 +6,7 @@
 	};
 </script>
 
-<button class="container">
+<div class="container">
 	<h1>Cards Collected</h1>
 	<div class="cards">
 		<div>
@@ -21,7 +21,7 @@
 			{/await}
 		</div>
 	</div>
-</button>
+</div>
 
 <style>
 	.container {
