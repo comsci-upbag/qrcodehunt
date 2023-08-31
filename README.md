@@ -17,7 +17,11 @@ cd freshiewalk
 
 # install dependencies (required only on first run or after every update on package.json)
 npm install
+```
 
+To be able to start running the project, you'll need to create a `.env` file in the root folder of the application. This file will contain the environment variables needed to run the application. You can find the content of the `.env` file at the organization's Messenger group chat. Now that you have the `.env` file, you can start editing the project with the code editor of your choice and run the following commands to start the development server:
+
+```bash
 # start the server
 npm run dev
 
