@@ -2,6 +2,7 @@
 	"name": "freshiewalk",
 	"version": "0.0.1",
 	"scripts": {
+		"setup": "docker compose up & npm install && npx prisma generate && npx prisma migrate dev && docker compose stop",
 		"dev": "docker compose up & npm run format && npm run lint && vite dev && docker compose stop",
 		"build": "vite build",
 		"preview": "vite preview",
