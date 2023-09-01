@@ -2,9 +2,13 @@
 
 COMSCI&#8203;@UP.BAG's project for the FreshieWalk 2023 at the University of the Philippines Baguio. The website is available at [freshiewalk.vercel.app](https://freshiewalk.vercel.app).
 
-## Development
+## Dependencies
 
-Make sure you have [NodeJS](https://nodejs.org) installed on your device to be able to contribute to this project.
+- [Node.js](https://nodejs.org/en/) (v18.17.1 or higher)
+- [Git](https://git-scm.com/) (v2.32.0 or higher)
+- [Docker](https://www.docker.com/) (v20.10.7 or higher)
+
+## Development
 
 Also, check out the [SvelteKit](https://kit.svelte.dev) documentation to learn more about the framework used in this project.
 
