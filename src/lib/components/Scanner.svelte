@@ -2,21 +2,19 @@
 	import { Html5Qrcode } from 'html5-qrcode';
 
 	let scanning = false;
-  let isAnswerValid = false;
 	let stopScanning = () => void {};
 
-  const validateAnswer = async (decodedText: string) => {
-    const res = await fetch("/api/validateAnswer", {
-      method: "POST",
-      headers: {
-        "Content-Type" : "text/plain",
-      },
-      body: decodedText
-    });
-    const data = await res.json();
-
-    isAnswerValid = data.isValid;
-  }
+	const validateAnswer = async (decodedText: string) => {
+		const res = await fetch('/api/validateAnswer', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'text/plain'
+			},
+			body: JSON.stringify({ decodedText })
+		});
+		const data = await res.json();
+		console.log(data);
+	};
 
 	const startScanning = () => {
 		let scanner = new Html5Qrcode('reader');
@@ -28,9 +26,9 @@
 					fps: 10,
 					qrbox: { width: 250, height: 250 }
 				},
-				async (decodedTest: string) => { 
-          await validateAnswer(decodedTest);
-        },
+				async (decodedTest: string) => {
+					await validateAnswer(decodedTest);
+				},
 				undefined
 			)
 			.then(() => {

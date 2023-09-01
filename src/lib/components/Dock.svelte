@@ -1,24 +1,28 @@
 <script lang="ts">
-	import temp from '$lib/images/temp.png';
+	import { availableCardImages } from '$lib/cardImages';
+
+	let cards: number[] = [];
+
+	let cardImages: string[];
+	$: cardImages = cards.map((index) => {
+		return availableCardImages[index];
+	});
 
 	const fetchCards = async () => {
-		return [temp, temp, temp, temp];
+		console.log('fetching..');
+		const res = await fetch('api/getUserCards');
+		const data = await res.json();
+		cards = data.cards;
 	};
 </script>
 
-<div class="container">
+<div class="container" on:mouseenter={fetchCards} role="none">
 	<h1>Cards Collected</h1>
 	<div class="cards">
 		<div>
-			{#await fetchCards()}
-				<p>Loading...</p>
-			{:then cards}
-				{#each cards as item}
-					<div class="card" style="background-image: url({item});" />
-				{/each}
-			{:catch}
-				<p>Loading failed.</p>
-			{/await}
+			{#each cardImages as cardImage}
+				<div class="card" style="background-image: url({cardImage});" />
+			{/each}
 		</div>
 	</div>
 </div>
