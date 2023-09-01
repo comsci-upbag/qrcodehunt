@@ -1,10 +1,13 @@
 @import '@fontsource/poppins';
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 body {
 	width: 100vw;
 	height: 100vh;
-	margin: 0px;
-	padding: 0px;
 	box-sizing: border-box;
 	overflow: hidden;
 	background: radial-gradient(farthest-side at top left, rgba(255, 0, 255, 0.5), transparent),

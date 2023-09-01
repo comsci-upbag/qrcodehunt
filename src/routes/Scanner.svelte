@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Html5Qrcode } from 'html5-qrcode';
-	import { onMount } from 'svelte';
+
+	let answers = ['cafeteria'];
 
 	let scanning = false;
 	let stopScanning = () => void {};
@@ -15,8 +16,10 @@
 					fps: 10,
 					qrbox: { width: 250, height: 250 }
 				},
-				(decodedText, decodedResult) => {
-					console.log(`Code matched = ${decodedText}`, decodedResult);
+				(decodedText) => {
+					if (answers.includes(decodedText)) {
+						console.log('new card!');
+					}
 				},
 				undefined
 			)
@@ -33,8 +36,6 @@
 			});
 		};
 	};
-
-	onMount(startScanning);
 </script>
 
 <div class="container">

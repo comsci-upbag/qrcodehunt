@@ -2,8 +2,6 @@
 	import { signIn } from '@auth/sveltekit/client';
 	import google from '$lib/images/google.svg';
 
-	import '@fontsource/poppins';
-
 	const handleSignIn = () => {
 		signIn('google', { callbackUrl: '/' });
 	};
