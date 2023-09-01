@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import temp from '$lib/images/temp.png';
 
 	const fetchCards = async () => {
