@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { Html5Qrcode } from 'html5-qrcode';
 
-	let answers = ['cafeteria'];
-
 	let scanning = false;
+  let isAnswerValid = false;
 	let stopScanning = () => void {};
+
+  const validateAnswer = async (decodedText: string) => {
+    const res = await fetch("/api/validateAnswer", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "text/plain",
+      },
+      body: decodedText
+    });
+    const data = await res.json();
+
+    isAnswerValid = data.isValid;
+  }
 
 	const startScanning = () => {
 		let scanner = new Html5Qrcode('reader');
@@ -16,11 +28,9 @@
 					fps: 10,
 					qrbox: { width: 250, height: 250 }
 				},
-				(decodedText) => {
-					if (answers.includes(decodedText)) {
-						console.log('new card!');
-					}
-				},
+				async (decodedTest: string) => { 
+          await validateAnswer(decodedTest);
+        },
 				undefined
 			)
 			.then(() => {
