@@ -58,8 +58,8 @@ model VerificationToken {
 // -- freshiewalk -- //
 
 model Card {
-  id     String  @id @default(cuid())
-  User   User?   @relation(fields: [userId], references: [id])
-  userId String?
-  image  String
+  id         String  @id @default(cuid())
+  User       User?   @relation(fields: [userId], references: [id])
+  userId     String?
+  cardNumber Int
 }
