@@ -9,7 +9,6 @@
 	});
 
 	const fetchCards = async () => {
-		console.log('fetching..');
 		const res = await fetch('api/getUserCards');
 		const data = await res.json();
 		cards = data.cards;

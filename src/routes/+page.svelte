@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Scanner from '$lib/components/Scanner.svelte';
 	import Dock from '$lib/components/Dock.svelte';
-	import Modal from '$lib/components/Modal.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -12,11 +11,8 @@
 	let email = user?.email;
 	let image = user?.image;
 
-	let counter = 0;
+	let counter = $page.data.counter;
 	let numsOfCards = 11;
-
-	let isModalShown = false;
-	let cardNumber = -1;
 
 	const validateCompletion = async () => {
 		await fetch('/api/validateCompletion');
@@ -34,8 +30,6 @@
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
-<Modal bind:isModalShown bind:cardNumber bind:counter />
-
 <div class="container">
 	<h1 class="title">Freshie Walk</h1>
 	<div class="card">
@@ -50,7 +44,7 @@
 			<p>{counter}/{numsOfCards}</p>
 		</div>
 
-		<Scanner />
+		<Scanner bind:counter />
 		{#if counter == numsOfCards}
 			<button on:click={validateCompletion}>Submit Cards</button>
 		{/if}

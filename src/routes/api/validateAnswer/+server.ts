@@ -1,13 +1,6 @@
 import { json } from '@sveltejs/kit';
-import { prisma } from '$lib/prisma';
-
-const answers = [
-	'50nWxBM821QYnHIzC2rdsPbB0JRLKh', // cafeteria - 0
-	'answer1',
-	'answer2',
-	'answer3',
-	'answer4'
-];
+import { prisma } from '$lib/server/prisma';
+import { answers } from '$lib/server/answers';
 
 export async function POST(event) {
 	const body = await event.request.json();

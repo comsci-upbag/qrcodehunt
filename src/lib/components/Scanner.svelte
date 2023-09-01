@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { Html5Qrcode } from 'html5-qrcode';
+	import { availableCardImages } from '$lib/cardImages';
 
+	export let counter: number;
+
+	let card = -1;
 	let scanning = false;
 	let stopScanning = () => void {};
 
@@ -12,8 +16,15 @@
 			},
 			body: JSON.stringify({ decodedText })
 		});
-		const data = await res.json();
-		console.log(data);
+		const { isValid, cardNumber } = await res.json();
+		if (isValid) {
+			stopScanning();
+			card = cardNumber;
+
+			const res = await fetch('/api/getUserCards');
+			const userCards = await res.json();
+			counter = userCards.cards.length;
+		}
 	};
 
 	const startScanning = () => {
@@ -49,17 +60,23 @@
 <div class="container">
 	<div id="reader">
 		{#if !scanning}
-			<div class="instructions">
-				<h1>Please allow camera permissions to be able to scan QR codes!</h1>
-				<p>
-					Reset the site settings if you have already denied camera permissions and wish to use this
-					app again.
-				</p>
-			</div>
+			{#if card != -1}
+				<div class="card" style="background-image: url({availableCardImages[card]});" />
+			{:else}
+				<div class="instructions">
+					<h1>Please allow camera permissions to be able to scan QR codes!</h1>
+					<p>
+						Reset the site settings if you have already denied camera permissions and wish to use
+						this app again.
+					</p>
+				</div>
+			{/if}
 		{/if}
 	</div>
 	{#if scanning}
 		<button on:click|once={stopScanning}>Stop Scanning</button>
+	{:else if card != -1}
+		<button on:click|once={() => (card = -1)}>Claim</button>
 	{:else}
 		<button on:click|once={startScanning}>Start Scanning</button>
 	{/if}
@@ -76,6 +93,14 @@
 	#reader {
 		width: 100%;
 		aspect-ratio: 1;
+	}
+	.card {
+		width: 360px;
+		height: 360px;
+		margin-right: 50px;
+		border-radius: 10px;
+		background: #eee;
+		background-size: cover;
 	}
 	.instructions {
 		width: 80%;

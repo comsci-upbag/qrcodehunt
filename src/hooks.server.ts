@@ -3,7 +3,7 @@ import GoogleProvider from '@auth/core/providers/google';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from '$env/static/private';
-import { prisma } from '$lib/prisma';
+import { prisma } from '$lib/server/prisma';
 
 import { redirect, type Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
