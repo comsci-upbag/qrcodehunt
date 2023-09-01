@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import Scanner from './Scanner.svelte';
 	import Dock from './Dock.svelte';
 
 	import { page } from '$app/stores';
-	import '@fontsource/poppins';
 
 	let user = $page.data.session?.user;
 	let name = user?.name;
@@ -12,10 +11,6 @@
 
 	let counter = 0;
 	let numsOfCards = 11;
-
-	const onClaim = () => {
-		if (counter < numsOfCards) counter++;
-	};
 </script>
 
 <svelte:head>
@@ -39,7 +34,6 @@
 
 		<Scanner />
 	</div>
-	<button on:click={onClaim}>Claim</button>
 	<Dock />
 </div>
 
@@ -129,22 +123,5 @@
 		font-family: Poppins;
 		font-weight: 500;
 		word-wrap: break-word;
-	}
-
-	button {
-		color: rgba(0, 0, 0, 0.5);
-		font-size: 16px;
-		font-family: Poppins;
-		font-weight: 700;
-		word-wrap: break-word;
-		padding-top: 13.5px;
-		padding-bottom: 13.5px;
-		padding-left: 49px;
-		padding-right: 48px;
-		background: rgba(255, 255, 255, 0.5);
-		border-radius: 20px;
-		justify-content: center;
-		align-items: center;
-		display: inline-flex;
 	}
 </style>
