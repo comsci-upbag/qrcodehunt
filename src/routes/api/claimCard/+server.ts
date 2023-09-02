@@ -3,13 +3,13 @@ import { prisma } from '$lib/server/prisma';
 
 export async function POST(event) {
 	const body = await event.request.json();
-	const res = await event.fetch('/api/validateAnswer',{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain'
-    },
-		body: JSON.stringify( {decodedText: body.answer})
-  });
+	const res = await event.fetch('/api/validateAnswer', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'text/plain'
+		},
+		body: JSON.stringify({ decodedText: body.answer })
+	});
 
 	const session = await event.locals.getSession();
 	if (!session) {
@@ -18,11 +18,11 @@ export async function POST(event) {
 
 	const user = session.user;
 
-  const { isValid, cardNumber }: { isValid: boolean; cardNumber: number } = await res.json();
+	const { isValid, cardNumber }: { isValid: boolean; cardNumber: number } = await res.json();
 
-  if (!isValid) {
-    return json({ isCardClaimed: false });
-  }
+	if (!isValid) {
+		return json({ isCardClaimed: false });
+	}
 
 	const post = await prisma.card.create({
 		data: {
@@ -32,7 +32,7 @@ export async function POST(event) {
 	});
 
 	if (!post) {
-    return json({ isCardClaimed: false });
+		return json({ isCardClaimed: false });
 	}
 
 	return json({

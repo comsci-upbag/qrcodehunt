@@ -29,8 +29,8 @@ export async function POST(event) {
 	if (userCards.length > 0) {
 		return json({
 			isValid: false,
-			isAlreadyFound: true,
-			cardNumber: undefined
+			isAlreadyClaimed: true,
+			cardNumber: cardNumber
 		});
 	}
 

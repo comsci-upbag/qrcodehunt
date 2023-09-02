@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Html5Qrcode } from 'html5-qrcode';
-	import { availableCardImages } from '$lib/cardImages';
+	import Modal from './Modal.svelte';
 
 	export let totalCardsCollected: number;
 
+	let modal: HTMLDialogElement;
 	let card = -1;
 	let scanning = false;
 	let answer = '';
@@ -22,26 +23,7 @@
 			stopScanning();
 			answer = decodedText;
 			card = cardNumber;
-		}
-	};
-
-	const claimCard = async () => {
-		if (answer == '') return;
-
-		const res = await fetch('/api/claimCard', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'text/plain'
-			},
-			body: JSON.stringify({ answer })
-		});
-		const { isCardClaimed } = await res.json();
-		if (isCardClaimed) {
-			card = -1;
-
-			const res = await fetch('/api/getUserCards');
-			const userCards = await res.json();
-			totalCardsCollected = userCards.cards.length;
+			modal.showModal();
 		}
 	};
 
@@ -75,26 +57,22 @@
 	};
 </script>
 
+<Modal bind:modal bind:answer bind:totalCardsCollected bind:card />
+
 <div class="container">
 	<div id="reader">
 		{#if !scanning}
-			{#if card != -1}
-				<div class="card" style="background-image: url({availableCardImages[card]});" />
-			{:else}
-				<div class="instructions">
-					<h1>Please allow camera permissions to be able to scan QR codes!</h1>
-					<p>
-						Reset the site settings if you have already denied camera permissions and wish to use
-						this app again.
-					</p>
-				</div>
-			{/if}
+			<div class="instructions">
+				<h1>Please allow camera permissions to be able to scan QR codes!</h1>
+				<p>
+					Reset the site settings if you have already denied camera permissions and wish to use this
+					app again.
+				</p>
+			</div>
 		{/if}
 	</div>
 	{#if scanning}
 		<button on:click|once={stopScanning}>Stop Scanning</button>
-	{:else if card != -1}
-		<button on:click|once={claimCard}>Claim</button>
 	{:else}
 		<button on:click|once={startScanning}>Start Scanning</button>
 	{/if}
@@ -111,14 +89,6 @@
 	#reader {
 		width: 100%;
 		aspect-ratio: 1;
-	}
-	.card {
-		width: 360px;
-		height: 360px;
-		margin-right: 50px;
-		border-radius: 10px;
-		background: #eee;
-		background-size: cover;
 	}
 	.instructions {
 		width: 80%;
