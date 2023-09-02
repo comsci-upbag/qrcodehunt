@@ -2,8 +2,6 @@
 	import Scanner from '$lib/components/Scanner.svelte';
 	import Dock from '$lib/components/Dock.svelte';
 
-	import { onMount } from 'svelte';
-
 	import { page } from '$app/stores';
 
 	let user = $page.data.session?.user;
@@ -11,18 +9,12 @@
 	let email = user?.email;
 	let image = user?.image;
 
-	let counter = $page.data.counter;
+	let totalCardsCollected = $page.data.totalCardsCollected;
 	let numsOfCards = 11;
 
 	const validateCompletion = async () => {
 		await fetch('/api/validateCompletion');
 	};
-
-	onMount(async () => {
-		const res = await fetch('/api/getUserCards');
-		const userCards = await res.json();
-		counter = userCards.cards.length;
-	});
 </script>
 
 <svelte:head>
@@ -41,11 +33,11 @@
 					<p>{email}</p>
 				</div>
 			</div>
-			<p>{counter}/{numsOfCards}</p>
+			<p>{totalCardsCollected}/{numsOfCards}</p>
 		</div>
 
-		<Scanner bind:counter />
-		{#if counter == numsOfCards}
+		<Scanner bind:totalCardsCollected />
+		{#if totalCardsCollected == numsOfCards}
 			<button on:click={validateCompletion}>Submit Cards</button>
 		{/if}
 	</div>

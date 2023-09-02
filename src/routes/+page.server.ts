@@ -5,6 +5,6 @@ export const load: PageServerLoad = async (event) => {
 	const userCards = await res.json();
 	return {
 		session: await event.locals.getSession(),
-		counter: userCards.cards.length
+		totalCardsCollected: userCards.cards.length
 	};
 };

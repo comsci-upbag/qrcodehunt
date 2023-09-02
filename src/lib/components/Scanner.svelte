@@ -2,10 +2,11 @@
 	import { Html5Qrcode } from 'html5-qrcode';
 	import { availableCardImages } from '$lib/cardImages';
 
-	export let counter: number;
+	export let totalCardsCollected: number;
 
 	let card = -1;
 	let scanning = false;
+	let answer = '';
 	let stopScanning = () => void {};
 
 	const validateAnswer = async (decodedText: string) => {
@@ -19,11 +20,28 @@
 		const { isValid, cardNumber } = await res.json();
 		if (isValid) {
 			stopScanning();
+			answer = decodedText;
 			card = cardNumber;
+		}
+	};
+
+	const claimCard = async () => {
+		if (answer == '') return;
+
+		const res = await fetch('/api/claimCard', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'text/plain'
+			},
+			body: JSON.stringify({ answer })
+		});
+		const { isCardClaimed } = await res.json();
+		if (isCardClaimed) {
+			card = -1;
 
 			const res = await fetch('/api/getUserCards');
 			const userCards = await res.json();
-			counter = userCards.cards.length;
+			totalCardsCollected = userCards.cards.length;
 		}
 	};
 
@@ -37,8 +55,8 @@
 					fps: 10,
 					qrbox: { width: 250, height: 250 }
 				},
-				async (decodedTest: string) => {
-					await validateAnswer(decodedTest);
+				async (decodedText: string) => {
+					await validateAnswer(decodedText);
 				},
 				undefined
 			)
@@ -76,7 +94,7 @@
 	{#if scanning}
 		<button on:click|once={stopScanning}>Stop Scanning</button>
 	{:else if card != -1}
-		<button on:click|once={() => (card = -1)}>Claim</button>
+		<button on:click|once={claimCard}>Claim</button>
 	{:else}
 		<button on:click|once={startScanning}>Start Scanning</button>
 	{/if}

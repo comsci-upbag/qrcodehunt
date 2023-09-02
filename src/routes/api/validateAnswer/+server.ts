@@ -34,17 +34,6 @@ export async function POST(event) {
 		});
 	}
 
-	const post = await prisma.card.create({
-		data: {
-			cardNumber: cardNumber,
-			User: { connect: { email: user.email! } }
-		}
-	});
-
-	if (!post) {
-		return invalidResponse;
-	}
-
 	return json({
 		isValid: true,
 		cardNumber: cardNumber
