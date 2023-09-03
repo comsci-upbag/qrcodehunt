@@ -10,7 +10,7 @@
 </script>
 
 <div use:confetti={{ stageHeight: 1000 }} />
-<main>
+<div class="container">
 	<div class="card">
 		<h1>Congratulations!</h1>
 		<p>You have found all the cards and successfully completed Freshie Walk!</p>
@@ -26,10 +26,10 @@
 		<p>To claim your reward, please accomplish the form below.</p>
 		<button on:click={redirectToForm}>Open Google Forms</button>
 	</div>
-</main>
+</div>
 
 <style>
-	main {
+	.container {
 		width: 100vw;
 		height: 100vh;
 		display: flex;
@@ -38,8 +38,6 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 25px;
-		padding: 20px;
 		margin: auto;
 	}
 
