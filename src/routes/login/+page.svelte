@@ -38,7 +38,6 @@
 		justify-content: center;
 		align-items: center;
 		margin: auto;
-		padding: 26px;
 		width: 360px;
 		height: 360px;
 		gap: 26px;
