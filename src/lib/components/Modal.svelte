@@ -100,4 +100,8 @@
 		align-items: center;
 		display: inline-flex;
 	}
+	button:hover {
+		transition: all 0.5s;
+		background: rgba(206, 205, 209, 0.5);
+	}
 </style>

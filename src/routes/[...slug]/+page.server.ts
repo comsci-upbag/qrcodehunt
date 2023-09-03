@@ -7,10 +7,6 @@ export const load: PageServerLoad = async (event) => {
 	const userCards = await res.json();
 	const slug = event.params.slug;
 
-	if (userCards.cards.length != maxCards) {
-		throw redirect(303, '/');
-	}
-
 	const validateRes = await event.fetch('/api/validateAnswer', {
 		method: 'POST',
 		headers: {

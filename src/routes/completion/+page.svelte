@@ -13,6 +13,7 @@
 <main>
 	<div class="card">
 		<h1>Congratulations!</h1>
+		<p>You have found all the cards and successfully completed Freshie Walk!</p>
 
 		<div class="cards">
 			<div>
@@ -38,6 +39,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 25px;
+		padding: 20px;
 		margin: auto;
 	}
 
@@ -45,7 +47,9 @@
 		font-family: 'Poppins', sans-serif;
 		font-size: x-large;
 		font-weight: bold;
-		padding: 16px;
+		padding-top: 16px;
+		padding-bottom: 5px;
+		text-align: center;
 	}
 
 	p {
@@ -55,6 +59,7 @@
 		padding: 8px;
 		font-weight: 500;
 		word-wrap: break-word;
+		text-align: center;
 	}
 
 	.card {
@@ -76,7 +81,7 @@
 	.cards {
 		width: 300px;
 		overflow: hidden;
-		padding-bottom: 13.5px;
+		padding: 1rem 0;
 	}
 
 	.cards > div {
@@ -132,5 +137,9 @@
 		justify-content: center;
 		align-items: center;
 		display: inline-flex;
+	}
+	button:hover {
+		transition: all 0.5s;
+		background: rgba(153, 134, 193, 0.5);
 	}
 </style>

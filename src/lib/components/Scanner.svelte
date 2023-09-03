@@ -63,11 +63,8 @@
 	<div id="reader">
 		{#if !scanning}
 			<div class="instructions">
-				<h1>Please allow camera permissions to be able to scan QR codes!</h1>
-				<p>
-					Reset the site settings if you have already denied camera permissions and wish to use this
-					app again.
-				</p>
+				<h1>Please allow camera permissions to scan QR codes.</h1>
+				<p>You could reset site settings if you have previously denied camera permissions</p>
 			</div>
 		{/if}
 	</div>
@@ -129,5 +126,9 @@
 		justify-content: center;
 		align-items: center;
 		display: inline-flex;
+	}
+	button:hover {
+		transition: all 0.5s;
+		background: rgba(153, 134, 193, 0.5);
 	}
 </style>

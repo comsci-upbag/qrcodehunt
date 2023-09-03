@@ -59,8 +59,9 @@
 	}
 
 	button {
+		width: 230px;
 		display: flex;
-		gap: 26px;
+		justify-content: space-between;
 		padding: 26px;
 		border-radius: 20px;
 		background: rgba(255, 255, 255, 0.5);
