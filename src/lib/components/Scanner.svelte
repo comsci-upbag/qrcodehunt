@@ -38,7 +38,7 @@
 					qrbox: { width: 250, height: 250 }
 				},
 				async (decodedText: string) => {
-					await validateAnswer(decodedText);
+					await validateAnswer(decodedText.split('/')[3]);
 				},
 				undefined
 			)

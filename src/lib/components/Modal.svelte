@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { availableCardImages } from '$lib/cardImages';
+	import { availableCardImages, maxCards } from '$lib/globals';
 
 	export let modal: HTMLDialogElement | undefined = undefined;
 	export let card: number;
@@ -21,6 +21,11 @@
 			const res = await fetch('/api/getUserCards');
 			const userCards = await res.json();
 			totalCardsCollected = userCards.cards.length;
+
+			if (totalCardsCollected == maxCards) {
+				window.location.href = '/completion';
+			}
+
 			modal?.close();
 		}
 	};

@@ -10,8 +10,9 @@ body {
 	height: 100vh;
 	box-sizing: border-box;
 	overflow: hidden;
-	background: radial-gradient(farthest-side at top left, rgba(255, 0, 255, 0.5), transparent),
-		radial-gradient(farthest-corner at bottom right, rgba(255, 50, 50, 0.5), transparent 400px);
+	background: radial-gradient(farthest-side at top left, rgba(26, 131, 175, 0.5), transparent),
+		radial-gradient(farthest-corner at bottom right, rgba(98, 51, 199, 0.5), transparent 400px);
+	backdrop-filter: blur(10px);
 }
 
 button {

@@ -17,6 +17,7 @@
 		"@auth/sveltekit": "^0.3.6",
 		"@fontsource/fira-mono": "^5.0.8",
 		"@fontsource/poppins": "^5.0.8",
+		"@neoconfetti/svelte": "^1.0.0",
 		"@prisma/client": "^5.2.0",
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.24.0",

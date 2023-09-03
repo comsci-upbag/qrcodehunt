@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { availableCardImages } from '$lib/cardImages';
+	import { availableCardImages } from '$lib/globals';
 
 	let cards: number[] = [];
 
@@ -37,10 +37,10 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 0px;
-		background: rgba(255, 255, 255, 0.6);
+		background: rgba(255, 255, 255, 0.9);
 		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-		backdrop-filter: blur(13px);
-		-webkit-backdrop-filter: blur(9px);
+		backdrop-filter: blur(60px);
+		-webkit-backdrop-filter: blur(60px);
 		border-radius: 10px;
 		border: 1px solid rgba(255, 255, 255, 0.18);
 	}

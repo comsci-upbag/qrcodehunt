@@ -1,8 +1,15 @@
 <script lang="ts">
 	import Scanner from '$lib/components/Scanner.svelte';
 	import Dock from '$lib/components/Dock.svelte';
+	import Modal from '$lib/components/Modal.svelte';
 
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
+	let modal: HTMLDialogElement;
+	let answer = $page.data.slug;
+	let card = $page.data.cardNumber;
+	let isValid = $page.data.isValid;
 
 	let user = $page.data.session?.user;
 	let name = user?.name;
@@ -11,12 +18,24 @@
 
 	let totalCardsCollected = $page.data.totalCardsCollected;
 	let numsOfCards = $page.data.maxCards;
+
+	const validateCompletion = async () => {
+		await fetch('/api/validateCompletion');
+	};
+
+	onMount(() => {
+		if (isValid) {
+			modal.showModal();
+		}
+	});
 </script>
 
 <svelte:head>
 	<title>Freshie Walk</title>
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
+
+<Modal bind:modal bind:answer bind:totalCardsCollected bind:card />
 
 <div class="container">
 	<h1 class="title">Freshie Walk</h1>
@@ -33,6 +52,9 @@
 		</div>
 
 		<Scanner bind:totalCardsCollected />
+		{#if totalCardsCollected == numsOfCards}
+			<button on:click={validateCompletion}>Submit Cards</button>
+		{/if}
 	</div>
 	<Dock />
 </div>

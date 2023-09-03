@@ -10,14 +10,9 @@ import { sequence } from '@sveltejs/kit/hooks';
 
 const redirects: Handle = async ({ event, resolve }) => {
 	const session = await event.locals.getSession();
-	if (!event.url.pathname.startsWith('/login')) {
-		if (!session) {
-			throw redirect(303, '/login');
-		}
-	} else {
-		if (session) {
-			throw redirect(303, '/');
-		}
+
+	if (!event.url.pathname.startsWith('/login') && !session) {
+		throw redirect(303, '/login');
 	}
 
 	return resolve(event);
