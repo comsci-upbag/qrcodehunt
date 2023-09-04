@@ -20,7 +20,7 @@
 	<div class="cards">
 		<div>
 			{#each cardImages as cardImage}
-				<div class="card" style="background-image: url({cardImage});" />
+				<img class="card" src={cardImage} alt="" />
 			{/each}
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 	.container {
 		transition: all 0.5s;
 		width: 360px;
-		height: 400px;
+		height: 450px;
 		position: absolute;
 		top: calc(100% - 50px);
 		display: inline-flex;
@@ -58,7 +58,7 @@
 	}
 
 	.container:hover {
-		top: calc(100vh - 380px);
+		top: calc(100vh - 430px);
 	}
 
 	.cards {
@@ -93,7 +93,6 @@
 		scroll-snap-align: start;
 		flex-shrink: 0;
 		width: 300px;
-		height: 300px;
 		margin-right: 50px;
 		border-radius: 10px;
 		background: #eee;

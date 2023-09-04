@@ -18,9 +18,13 @@ export async function POST(event) {
 
 	const user = session.user;
 
-	const { isValid, cardNumber }: { isValid: boolean; cardNumber: number } = await res.json();
+	const {
+		isValid,
+		cardNumber,
+		isAlreadyClaimed
+	}: { isValid: boolean; cardNumber: number; isAlreadyClaimed: boolean } = await res.json();
 
-	if (!isValid) {
+	if (!isValid || isAlreadyClaimed) {
 		return json({ isCardClaimed: false });
 	}
 

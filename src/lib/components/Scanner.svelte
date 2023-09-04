@@ -8,6 +8,7 @@
 	let card = -1;
 	let scanning = false;
 	let answer = '';
+	let isCardClaimed = false;
 	let stopScanning = () => void {};
 
 	const validateAnswer = async (decodedText: string) => {
@@ -18,10 +19,11 @@
 			},
 			body: JSON.stringify({ decodedText })
 		});
-		const { isValid, cardNumber } = await res.json();
+		const { isValid, cardNumber, isAlreadyClaimed } = await res.json();
 		if (isValid) {
 			stopScanning();
 			answer = decodedText;
+			isCardClaimed = isAlreadyClaimed;
 			card = cardNumber;
 			modal.showModal();
 		}
@@ -57,7 +59,13 @@
 	};
 </script>
 
-<Modal bind:modal bind:answer bind:totalCardsCollected bind:card />
+<Modal
+	bind:modal
+	bind:answer
+	bind:totalCardsCollected
+	bind:card
+	bind:isAlreadyFound={isCardClaimed}
+/>
 
 <div class="container">
 	<div id="reader">

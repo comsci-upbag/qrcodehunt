@@ -14,7 +14,7 @@ export const load: PageServerLoad = async (event) => {
 		},
 		body: JSON.stringify({ decodedText: slug })
 	});
-	const { isValid, cardNumber } = await validateRes.json();
+	const { isValid, cardNumber, isAlreadyClaimed } = await validateRes.json();
 
 	if (!isValid) throw redirect(303, '/');
 
@@ -22,8 +22,9 @@ export const load: PageServerLoad = async (event) => {
 		session: await event.locals.getSession(),
 		totalCardsCollected: userCards.cards.length,
 		maxCards,
-		isValid,
 		slug,
-		cardNumber
+		isValid,
+		cardNumber,
+		isAlreadyClaimed
 	};
 };

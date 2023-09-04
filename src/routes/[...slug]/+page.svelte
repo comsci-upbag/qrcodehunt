@@ -18,6 +18,7 @@
 
 	let totalCardsCollected = $page.data.totalCardsCollected;
 	let numsOfCards = $page.data.maxCards;
+	let isAlreadyFound = $page.data.isAlreadyFound;
 
 	const validateCompletion = async () => {
 		await fetch('/api/validateCompletion');
@@ -35,7 +36,7 @@
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
-<Modal bind:modal bind:answer bind:totalCardsCollected bind:card />
+<Modal bind:modal bind:answer bind:totalCardsCollected bind:card bind:isAlreadyFound />
 
 <div class="container">
 	<h1 class="title">Freshie Walk</h1>

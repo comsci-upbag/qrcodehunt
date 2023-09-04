@@ -5,6 +5,7 @@
 	export let card: number;
 	export let answer: string;
 	export let totalCardsCollected;
+	export let isAlreadyFound: boolean;
 
 	const claimCard = async () => {
 		const res = await fetch('/api/claimCard', {
@@ -17,6 +18,7 @@
 		const { isCardClaimed } = await res.json();
 		if (isCardClaimed) {
 			card = -1;
+			modal?.close();
 
 			const res = await fetch('/api/getUserCards');
 			const userCards = await res.json();
@@ -25,17 +27,21 @@
 			if (totalCardsCollected == maxCards) {
 				window.location.href = '/completion';
 			}
-
-			modal?.close();
 		}
 	};
 </script>
 
 <dialog bind:this={modal}>
 	<div class="modal">
-		<h1>New card found!</h1>
-		<div class="card" style="background-image: url({availableCardImages[card]});" />
-		<button on:click={claimCard}>Claim </button>
+		{#if isAlreadyFound}
+			<h1>Card already claimed!</h1>
+			<img class="card" src={availableCardImages[card]} alt="" />
+			<button on:click={() => modal?.close()}>Close</button>
+		{:else}
+			<h1>New card found!</h1>
+			<img class="card" src={availableCardImages[card]} alt="" />
+			<button on:click={claimCard}>Claim</button>
+		{/if}
 	</div>
 </dialog>
 
@@ -78,7 +84,6 @@
 
 	.card {
 		width: 300px;
-		height: 300px;
 		border-radius: 10px;
 		background: #eee;
 		background-size: cover;
