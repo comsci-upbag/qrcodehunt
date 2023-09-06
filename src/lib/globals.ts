@@ -34,4 +34,4 @@ export const availableCardImages = [
 	card15
 ];
 export const maxCards = availableCardImages.length;
-export const formLink = 'https://www.google.com/';
+export const formLink = 'https://forms.gle/GtiE9qjwtC2GLB4X8';

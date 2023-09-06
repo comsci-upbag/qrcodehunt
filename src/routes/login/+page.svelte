@@ -58,14 +58,14 @@
 	}
 
 	button {
-		width: 230px;
+		width: 200px;
 		display: flex;
 		justify-content: space-between;
 		padding: 26px;
 		border-radius: 20px;
 		background: rgba(255, 255, 255, 0.5);
 		color: rgba(71.83, 28.13, 164.69, 0.5);
-		font-size: 20px;
+		font-size: 16px;
 		font-family: Poppins;
 		font-weight: 700;
 		word-wrap: break-word;
