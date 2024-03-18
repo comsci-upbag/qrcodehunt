@@ -72,7 +72,7 @@
 		{#if !scanning}
 			<div class="instructions">
 				<h1>Please allow camera permissions to scan QR codes.</h1>
-				<p>You could reset site settings if you have previously denied camera permissions</p>
+				<p>You could reset site settings if you have previously denied camera permissions.</p>
 			</div>
 		{/if}
 	</div>
