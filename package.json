@@ -4,7 +4,7 @@
 	"scripts": {
 		"setup": "docker compose up & npm install && npx prisma generate && npx prisma migrate dev && docker compose stop",
 		"dev": "docker compose up & npm run format && npm run lint && vite dev && docker compose stop",
-		"build": "vite build",
+		"build": "npx prisma generate && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
