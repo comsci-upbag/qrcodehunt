@@ -13,7 +13,7 @@
 <div class="container">
 	<div class="card">
 		<h1>Congratulations!</h1>
-		<p>You have found all the cards and successfully completed Freshie Walk!</p>
+		<p>You have found all the cards and successfully completed QR Code Hunt!</p>
 
 		<div class="cards">
 			<div>

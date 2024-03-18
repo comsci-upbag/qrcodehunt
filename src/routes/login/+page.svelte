@@ -8,13 +8,13 @@
 </script>
 
 <svelte:head>
-	<title>Freshie Walk</title>
+	<title>QR Code Hunt</title>
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
 <div class="container">
 	<div class="card">
-		<h1>Freshie Walk</h1>
+		<h1>QR Code Hunt</h1>
 		<button on:click={handleSignIn}>
 			Sign in with Google
 			<img src={google} alt="" />

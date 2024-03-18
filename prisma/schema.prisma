@@ -56,7 +56,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// -- freshiewalk -- //
+// -- qrcodehunt -- //
 
 model Card {
   id         String  @id @default(cuid())

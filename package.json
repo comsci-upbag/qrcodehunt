@@ -1,5 +1,5 @@
 {
-	"name": "freshiewalk",
+	"name": "qrcodehunt",
 	"version": "0.0.1",
 	"scripts": {
 		"setup": "docker compose up & npm install && npx prisma generate && npx prisma migrate dev && docker compose stop",

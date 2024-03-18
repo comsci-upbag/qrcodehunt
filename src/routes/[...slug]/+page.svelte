@@ -32,14 +32,14 @@
 </script>
 
 <svelte:head>
-	<title>Freshie Walk</title>
+	<title>QR Code Hunt</title>
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
 <Modal bind:modal bind:answer bind:totalCardsCollected bind:card bind:isAlreadyFound />
 
 <div class="container">
-	<h1 class="title">Freshie Walk</h1>
+	<h1 class="title">QR Code Hunt</h1>
 	<div class="card">
 		<div class="info-bar">
 			<div class="profile-bar">

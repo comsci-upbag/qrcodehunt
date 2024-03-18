@@ -1,6 +1,6 @@
-# [freshiewalk](https://freshiewalk.vercel.app)
+# [qrcodehunt](https://qrcodehunt.vercel.app)
 
-COMSCI&#8203;@UP.BAG's project for the FreshieWalk 2023 at the University of the Philippines Baguio. The website is available at [freshiewalk.vercel.app](https://freshiewalk.vercel.app).
+COMSCI&#8203;@UP.BAG's project for the QR Code Hunt 2023 at the University of the Philippines Baguio. The website is available at [qrcodehunt.vercel.app](https://qrcodehunt.vercel.app).
 
 ## Dependencies
 
@@ -14,10 +14,10 @@ Also, check out the [SvelteKit](https://kit.svelte.dev) documentation to learn m
 
 ```bash
 # clone this repository
-git clone https://github.com/comsci-upbag/freshiewalk
+git clone https://github.com/comsci-upbag/qrcodehunt
 
 # change directory into the root folder of the application
-cd freshiewalk
+cd qrcodehunt
 
 # install dependencies (required only on first run or after every update on package.json)
 npm install
