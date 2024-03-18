@@ -20,8 +20,8 @@
 	let numsOfCards = $page.data.maxCards;
 	let isAlreadyFound = $page.data.isAlreadyFound;
 
-	const validateCompletion = async () => {
-		await fetch('/api/validateCompletion');
+	const redirectToCompletion = async () => {
+		window.location.href = `/completion`;
 	};
 
 	onMount(() => {
@@ -54,7 +54,7 @@
 
 		<Scanner bind:totalCardsCollected />
 		{#if totalCardsCollected == numsOfCards}
-			<button on:click={validateCompletion}>Submit Cards</button>
+			<button on:click={redirectToCompletion}>Submit Cards</button>
 		{/if}
 	</div>
 	<Dock />

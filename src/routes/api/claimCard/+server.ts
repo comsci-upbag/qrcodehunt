@@ -1,4 +1,4 @@
-import { json } from '@sveltejs/kit';
+import { json, redirect } from '@sveltejs/kit';
 import { prisma } from '$lib/server/prisma';
 
 export async function POST(event) {
@@ -13,10 +13,10 @@ export async function POST(event) {
 
 	const session = await event.locals.getSession();
 	if (!session) {
-		throw redirect(303, '/login');
+		redirect(303, '/login');
 	}
 
-	const user = session.user;
+	const user = session?.user;
 
 	const {
 		isValid,
@@ -28,12 +28,14 @@ export async function POST(event) {
 		return json({ isCardClaimed: false });
 	}
 
-	const post = await prisma.card.create({
-		data: {
-			cardNumber: cardNumber,
-			User: { connect: { email: user.email! } }
-		}
-	});
+	const post = user
+		? await prisma.card.create({
+				data: {
+					cardNumber: cardNumber,
+					User: { connect: { email: user.email! } }
+				}
+		  })
+		: null;
 
 	if (!post) {
 		return json({ isCardClaimed: false });

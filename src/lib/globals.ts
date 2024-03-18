@@ -4,7 +4,7 @@ import card2 from '$lib/images/cards/12sJG5Q4LG.png';
 import card3 from '$lib/images/cards/vfBf73I3Gv.png';
 import card4 from '$lib/images/cards/Ut4atEsj1e.png';
 import card5 from '$lib/images/cards/cbaiifqwbh.png';
-import card6 from '$lib/images/cards/1TbQWUCNdv.png';
+// import card6 from '$lib/images/cards/1TbQWUCNdv.png';
 import card7 from '$lib/images/cards/K6PWhgUu3I.png';
 import card8 from '$lib/images/cards/t7VZ7e3oZm.png';
 import card9 from '$lib/images/cards/XApsMTHqag.png';
@@ -22,7 +22,7 @@ export const availableCardImages = [
 	card3,
 	card4,
 	card5,
-	card6,
+	// card6,
 	card7,
 	card8,
 	card9,
@@ -34,4 +34,4 @@ export const availableCardImages = [
 	card15
 ];
 export const maxCards = availableCardImages.length;
-export const formLink = 'https://forms.gle/GtiE9qjwtC2GLB4X8';
+export const formLink = 'https://forms.gle/4KGhnwS3cGpk3A846';
