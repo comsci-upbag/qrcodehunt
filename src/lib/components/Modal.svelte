@@ -34,6 +34,7 @@
 			})
 			.finally(() => {
 				modal?.close();
+				window.location.href = '/';
 			});
 	};
 </script>

@@ -31,11 +31,11 @@ export async function POST(event) {
 
 	const post = user?.email
 		? await prisma.card.create({
-			data: {
-				cardNumber: cardNumber,
-				User: { connect: { email: user.email } }
-			}
-		})
+				data: {
+					cardNumber: cardNumber,
+					User: { connect: { email: user.email } }
+				}
+		  })
 		: null;
 
 	if (post) {
