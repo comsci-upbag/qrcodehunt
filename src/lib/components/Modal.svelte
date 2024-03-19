@@ -9,7 +9,7 @@
 	export let isAlreadyFound: boolean;
 
 	const claimCard = async () => {
-		modal?.close();
+		window.location.href = '/';
 		const res = await fetch('/api/claimCard', {
 			method: 'POST',
 			headers: {

@@ -58,7 +58,6 @@ export async function POST(event) {
 			}
 		});
 
-
 		if (!userUpdate) {
 			return json({ isCardClaimed: false });
 		}
