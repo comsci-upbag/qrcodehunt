@@ -29,8 +29,8 @@
 			if (totalCardsCollected == maxCards) {
 				window.location.href = '/completion';
 			}
-			modal?.close();
 		}
+		modal?.close();
 	};
 </script>
 
