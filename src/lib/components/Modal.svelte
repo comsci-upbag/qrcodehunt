@@ -18,7 +18,7 @@
 		});
 		const { isCardClaimed } = await res.json();
 		if (isCardClaimed) {
-			$page.data.userCards.push(card);
+			$page.data.userCards = [...$page.data.userCards, card];
 			card = -1;
 			modal?.close();
 
