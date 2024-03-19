@@ -6,6 +6,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
+	let modal: HTMLDialogElement;
 	let answer = $page.data.slug;
 	let card = $page.data.cardNumber;
 	let isValid = $page.data.isValid;
@@ -35,7 +36,7 @@
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
-<Modal bind:answer bind:totalCardsCollected bind:card bind:isAlreadyFound />
+<Modal bind:modal bind:answer bind:totalCardsCollected bind:card bind:isAlreadyFound />
 
 <div class="container">
 	<h1 class="title">QR Code Hunt</h1>
