@@ -4,6 +4,7 @@ import { maxCards } from '$lib/globals';
 import { prisma } from '$lib/server/prisma';
 
 export const load: PageServerLoad = async (event) => {
+	const session = await event.locals.getSession();
 	const res = await event.fetch('/api/getUserCards');
 	const userCards = await res.json();
 
@@ -11,11 +12,11 @@ export const load: PageServerLoad = async (event) => {
 		throw redirect(303, '/');
 	}
 
-	const user = await prisma.user.findUnique({
+	const user = session?.user?.email ? await prisma.user.findUnique({
 		where: {
-			email: userCards.email
+			email: session?.user?.email
 		}
-	});
+	}) : null;
 
 	if (!user) {
 		throw redirect(303, '/');

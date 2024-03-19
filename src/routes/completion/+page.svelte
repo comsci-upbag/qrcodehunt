@@ -23,7 +23,7 @@
 			</div>
 		</div>
 
-		<a href="/leaderboard">View Leaderboards</a>
+		<a href="/leaderboards">View Leaderboards</a>
 
 		<p>To claim your reward, please accomplish the form below.</p>
 		<button on:click={redirectToForm}>Open Google Forms</button>
