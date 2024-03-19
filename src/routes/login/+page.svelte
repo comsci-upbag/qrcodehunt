@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { signIn } from '@auth/sveltekit/client';
-	import google from '$lib/images/google.svg';
+	import google from '$lib/assets/google.svg';
 
 	const handleSignIn = () => {
 		signIn('google', { callbackUrl: '/' });
@@ -41,8 +41,8 @@
 		width: 360px;
 		height: 360px;
 		gap: 26px;
-		background: rgba(255, 255, 255, 0.4);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		background: var(--black);
+		box-shadow: 0 8px 32px 0 var(--primary);
 		backdrop-filter: blur(9px);
 		-webkit-backdrop-filter: blur(9px);
 		border-radius: 10px;
@@ -50,7 +50,7 @@
 	}
 
 	.card h1 {
-		color: rgba(57, 69, 92, 0.8);
+		color: var(--primary);
 		font-size: 34px;
 		font-family: Poppins;
 		font-weight: 700;
@@ -63,8 +63,8 @@
 		justify-content: space-between;
 		padding: 26px;
 		border-radius: 20px;
-		background: rgba(255, 255, 255, 0.5);
-		color: rgba(71.83, 28.13, 164.69, 0.5);
+		background: var(--secondary);
+		color: var(--white);
 		font-size: 16px;
 		font-family: Poppins;
 		font-weight: 700;

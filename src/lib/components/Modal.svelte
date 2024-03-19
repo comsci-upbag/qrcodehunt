@@ -51,7 +51,7 @@
 		margin: auto;
 		padding: 30px 10px;
 		background: rgba(255, 255, 255, 0.4);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		box-shadow: 0 8px 32px 0 var(--secondary);
 		backdrop-filter: blur(16px);
 		-webkit-backdrop-filter: blur(16px);
 		border-radius: 10px;
@@ -60,7 +60,7 @@
 
 	dialog::backdrop {
 		background: rgba(255, 255, 255, 0.4);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		box-shadow: 0 8px 32px 0 var(--secondary);
 		backdrop-filter: blur(3px);
 		-webkit-backdrop-filter: blur(3px);
 		z-index: 100;
