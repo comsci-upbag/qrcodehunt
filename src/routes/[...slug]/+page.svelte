@@ -5,14 +5,6 @@
 
 	import { availableCardImages } from '$lib/globals';
 
-	// Preload card images after the page has loaded
-	window.onload = () => {
-		availableCardImages.forEach((src) => {
-			const img = new Image();
-			img.src = src;
-		});
-	};
-
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
@@ -38,6 +30,11 @@
 		if (isValid) {
 			modal.showModal();
 		}
+
+		availableCardImages.forEach((src) => {
+			const img = new Image();
+			img.src = src;
+		});
 	});
 </script>
 

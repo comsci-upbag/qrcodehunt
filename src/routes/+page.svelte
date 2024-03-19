@@ -1,16 +1,17 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Scanner from '$lib/components/Scanner.svelte';
 	import Dock from '$lib/components/Dock.svelte';
 
 	import { availableCardImages } from '$lib/globals';
 
 	// Preload card images after the page has loaded
-	window.onload = () => {
+	onMount(async () => {
 		availableCardImages.forEach((src) => {
 			const img = new Image();
 			img.src = src;
 		});
-	};
+	});
 
 	import { page } from '$app/stores';
 
