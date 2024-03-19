@@ -9,6 +9,7 @@
 	export let isAlreadyFound: boolean;
 
 	const claimCard = async () => {
+		modal?.close();
 		const res = await fetch('/api/claimCard', {
 			method: 'POST',
 			headers: {
@@ -30,7 +31,6 @@
 				window.location.href = '/completion';
 			}
 		}
-		modal?.close();
 	};
 </script>
 
