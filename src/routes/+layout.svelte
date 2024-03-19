@@ -17,7 +17,6 @@
 </script>
 
 {#await waitBackground}
-	<img src="$lib/assets/background.png" alt="" class="hidden" />
 	<div class="loading">
 		<div class="lds-ripple">
 			<div></div>
@@ -29,12 +28,6 @@
 {/await}
 
 <style>
-	.hidden {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-		opacity: 0;
-	}
 	.loading {
 		height: 100vh;
 		width: 100vw;
