@@ -1,19 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { availableCardImages } from '$lib/globals';
-
-	let cardImages: string[];
-	$: cardImages = ($page.data.userCards as number[]).map((index) => {
-		return availableCardImages[index];
-	});
 </script>
 
 <div class="container" role="none">
 	<h1>Cards Collected</h1>
 	<div class="cards">
 		<div>
-			{#each cardImages as cardImage}
-				<img class="card" src={cardImage} alt="" />
+			{#each $page.data.userCards as index}
+				<img class="card" src={availableCardImages[index]} alt="" />
 			{/each}
 		</div>
 	</div>
