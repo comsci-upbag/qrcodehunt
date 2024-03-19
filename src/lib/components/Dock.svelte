@@ -2,10 +2,8 @@
 	import { page } from '$app/stores';
 	import { availableCardImages } from '$lib/globals';
 
-	let cards: number[] = $page.data.userCards;
-
 	let cardImages: string[];
-	$: cardImages = cards.map((index) => {
+	$: cardImages = ($page.data.userCards as number[]).map((index) => {
 		return availableCardImages[index];
 	});
 </script>
