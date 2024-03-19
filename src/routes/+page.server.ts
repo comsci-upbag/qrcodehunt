@@ -10,9 +10,12 @@ export const load: PageServerLoad = async (event) => {
 		throw redirect(303, '/completion');
 	}
 
+	const cards: number[] = userCards.cards;
+
 	return {
 		session: await event.locals.getSession(),
 		totalCardsCollected: userCards.cards.length,
-		maxCards
+		maxCards,
+		userCards: cards
 	};
 };

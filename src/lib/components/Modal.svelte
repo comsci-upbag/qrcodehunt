@@ -40,7 +40,7 @@
 		{:else}
 			<h1>New card found!</h1>
 			<img class="card" src={availableCardImages[card]} alt="" />
-			<button on:click={claimCard}>Claim</button>
+			<button on:click|once={claimCard}>Claim</button>
 		{/if}
 	</div>
 </dialog>

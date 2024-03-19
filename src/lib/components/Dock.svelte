@@ -1,21 +1,16 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { availableCardImages } from '$lib/globals';
 
-	let cards: number[] = [];
+	let cards: number[] = $page.data.userCards;
 
 	let cardImages: string[];
 	$: cardImages = cards.map((index) => {
 		return availableCardImages[index];
 	});
-
-	const fetchCards = async () => {
-		const res = await fetch('/api/getUserCards');
-		const data = await res.json();
-		cards = data.cards;
-	};
 </script>
 
-<div class="container" on:mouseenter={fetchCards} role="none">
+<div class="container" role="none">
 	<h1>Cards Collected</h1>
 	<div class="cards">
 		<div>

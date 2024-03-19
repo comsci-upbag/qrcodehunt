@@ -18,6 +18,8 @@ export const load: PageServerLoad = async (event) => {
 
 	if (!isValid) throw redirect(303, '/');
 
+	const cards: number[] = userCards.cards;
+
 	return {
 		session: await event.locals.getSession(),
 		totalCardsCollected: userCards.cards.length,
@@ -25,6 +27,7 @@ export const load: PageServerLoad = async (event) => {
 		slug,
 		isValid,
 		cardNumber,
-		isAlreadyClaimed
+		isAlreadyClaimed,
+		userCards: cards
 	};
 };
