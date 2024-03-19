@@ -9,28 +9,32 @@
 	export let isAlreadyFound: boolean;
 
 	const claimCard = async () => {
-		const res = await fetch('/api/claimCard', {
+		fetch('/api/claimCard', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'text/plain'
 			},
 			body: JSON.stringify({ answer })
-		});
-		const { isCardClaimed } = await res.json();
-		if (isCardClaimed) {
-			$page.data.userCards = [...$page.data.userCards, card];
-			card = -1;
+		})
+			.then(async (res) => {
+				const { isCardClaimed } = await res.json();
+				if (isCardClaimed) {
+					$page.data.userCards = [...$page.data.userCards, card];
+					card = -1;
 
-			const res = await fetch('/api/getUserCards');
-			const userCards = await res.json();
-			totalCardsCollected = userCards.cards.length;
-			$page.data.totalCardsCollected = totalCardsCollected;
+					const res = await fetch('/api/getUserCards');
+					const userCards = await res.json();
+					totalCardsCollected = userCards.cards.length;
+					$page.data.totalCardsCollected = totalCardsCollected;
 
-			if (totalCardsCollected == maxCards) {
-				window.location.href = '/completion';
-			}
-		}
-		window.location.href = '/';
+					if (totalCardsCollected == maxCards) {
+						window.location.href = '/completion';
+					}
+				}
+			})
+			.finally(() => {
+				modal?.close();
+			});
 	};
 </script>
 
