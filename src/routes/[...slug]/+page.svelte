@@ -3,6 +3,16 @@
 	import Dock from '$lib/components/Dock.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 
+	import { availableCardImages } from '$lib/globals';
+
+	// Preload card images after the page has loaded
+	window.onload = () => {
+		availableCardImages.forEach((src) => {
+			const img = new Image();
+			img.src = src;
+		});
+	};
+
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
