@@ -7,9 +7,11 @@
 	<h1>Cards Collected</h1>
 	<div class="cards">
 		<div>
-			{#each $page.data.userCards as index}
-				<img class="card" src={availableCardImages[index]} alt="" />
-			{/each}
+			{#key $page.data.userCards}
+				{#each $page.data.userCards as index}
+					<img class="card" src={availableCardImages[index]} alt="" />
+				{/each}
+			{/key}
 		</div>
 	</div>
 </div>
