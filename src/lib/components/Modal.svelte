@@ -37,11 +37,11 @@
 	<div class="modal">
 		{#if isAlreadyFound}
 			<h1>Card already claimed!</h1>
-			<img class="card" src={availableCardImages[card]} alt="" />
+			<img class="card" src={availableCardImages[card]} alt="" loading="lazy" />
 			<button on:click={() => modal?.close()}>Close</button>
 		{:else}
 			<h1>New card found!</h1>
-			<img class="card" src={availableCardImages[card]} alt="" />
+			<img class="card" src={availableCardImages[card]} alt="" loading="lazy" />
 			<button on:click|once={claimCard}>Claim</button>
 		{/if}
 	</div>
