@@ -3,8 +3,6 @@
 	import Dock from '$lib/components/Dock.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 
-	import { availableCardImages } from '$lib/globals';
-
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
@@ -30,11 +28,6 @@
 		if (isValid) {
 			modal.showModal();
 		}
-
-		availableCardImages.forEach((src) => {
-			const img = new Image();
-			img.src = src;
-		});
 	});
 </script>
 
