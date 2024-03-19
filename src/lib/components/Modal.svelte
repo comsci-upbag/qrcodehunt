@@ -2,11 +2,12 @@
 	import { page } from '$app/stores';
 	import { availableCardImages, maxCards } from '$lib/globals';
 
-	export let modal: HTMLDialogElement | undefined = undefined;
 	export let card: number;
 	export let answer: string;
 	export let totalCardsCollected;
 	export let isAlreadyFound: boolean;
+
+	let modal: HTMLDialogElement;
 
 	const claimCard = async () => {
 		const res = await fetch('/api/claimCard', {
@@ -20,7 +21,6 @@
 		if (isCardClaimed) {
 			$page.data.userCards = [...$page.data.userCards, card];
 			card = -1;
-			modal?.close();
 
 			const res = await fetch('/api/getUserCards');
 			const userCards = await res.json();
@@ -30,6 +30,7 @@
 			if (totalCardsCollected == maxCards) {
 				window.location.href = '/completion';
 			}
+			modal.close();
 		}
 	};
 </script>
