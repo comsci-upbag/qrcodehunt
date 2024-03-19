@@ -53,6 +53,7 @@
 		font-family: 'Poppins', sans-serif;
 		font-size: x-large;
 		font-weight: bold;
+		color: var(--primary);
 	}
 
 	.card {
