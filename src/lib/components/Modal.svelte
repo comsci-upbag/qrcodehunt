@@ -25,6 +25,7 @@
 			const res = await fetch('/api/getUserCards');
 			const userCards = await res.json();
 			totalCardsCollected = userCards.cards.length;
+			$page.data.totalCardsCollected = totalCardsCollected;
 
 			if (totalCardsCollected == maxCards) {
 				window.location.href = '/completion';

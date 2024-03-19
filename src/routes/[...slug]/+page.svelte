@@ -49,7 +49,7 @@
 					<p>{email}</p>
 				</div>
 			</div>
-			<p>{totalCardsCollected}/{numsOfCards}</p>
+			<p>{$page.data.totalCardsCollected}/{numsOfCards}</p>
 		</div>
 
 		<Scanner bind:totalCardsCollected />
