@@ -23,6 +23,8 @@
 			</div>
 		</div>
 
+		<a href="/leaderboard">View Leaderboards</a>
+
 		<p>To claim your reward, please accomplish the form below.</p>
 		<button on:click={redirectToForm}>Open Google Forms</button>
 	</div>
@@ -48,6 +50,20 @@
 		padding-top: 16px;
 		padding-bottom: 5px;
 		text-align: center;
+	}
+
+	a {
+		color: var(--primary);
+		font-size: 16px;
+		font-family: Poppins;
+		font-weight: 700;
+		word-wrap: break-word;
+		padding-top: 13.5px;
+		padding-bottom: 13.5px;
+		padding-left: 49px;
+		padding-right: 48px;
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	p {

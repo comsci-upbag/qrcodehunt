@@ -12,7 +12,7 @@ export async function POST(event) {
 		return invalidResponse;
 	}
 
-	const cardNumber = answers.indexOf(body.decodedText);
+	const cardNumber = body.decodedText === 'https://qrcodehunt.vercel.app/K6PWhgUu3I' ? answers.indexOf('K6PWhgUu3I') : answers.indexOf(body.decodedText);
 	if (cardNumber == -1) {
 		return invalidResponse;
 	}
