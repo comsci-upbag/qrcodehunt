@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { availableCardImages, maxCards } from '$lib/globals';
 
 	export let modal: HTMLDialogElement | undefined = undefined;
@@ -17,6 +18,7 @@
 		});
 		const { isCardClaimed } = await res.json();
 		if (isCardClaimed) {
+			$page.data.userCards.push(card);
 			card = -1;
 			modal?.close();
 
