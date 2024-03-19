@@ -8,6 +8,33 @@
 			new Image().src = card;
 		});
 	});
+
+	const waitBackground = new Promise((resolve) => {
+		let backgroundImage = new Image();
+		backgroundImage.src = '$lib/assets/background.png';
+		backgroundImage.onload = resolve;
+	});
 </script>
 
-<slot />
+{#await waitBackground}
+	<div class="loading">
+		<h1>Loading...</h1>
+	</div>
+{:then}
+	<slot />
+{/await}
+
+<style>
+	.loading {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: black;
+	}
+
+	h1 {
+		color: white;
+	}
+</style>

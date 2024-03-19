@@ -8,6 +8,12 @@
 	export let totalCardsCollected;
 	export let isAlreadyFound: boolean;
 
+	const waitImage = new Promise((resolve) => {
+		let image = new Image();
+		image.src = availableCardImages[card];
+		image.onload = resolve;
+	});
+
 	const claimCard = async () => {
 		const res = await fetch('/api/claimCard', {
 			method: 'POST',
@@ -37,12 +43,16 @@
 	<div class="modal">
 		{#if isAlreadyFound}
 			<h1>Card already claimed!</h1>
-			<img class="card" src={availableCardImages[card]} alt="" loading="lazy" />
+			<img class="card" src={availableCardImages[card]} alt="" />
 			<button on:click={() => modal?.close()}>Close</button>
 		{:else}
 			<h1>New card found!</h1>
-			<img class="card" src={availableCardImages[card]} alt="" loading="lazy" />
-			<button on:click|once={claimCard}>Claim</button>
+			<img class="card" src={availableCardImages[card]} alt="" />
+			{#await waitImage}
+				<button on:click|once={claimCard} disabled>Claim</button>
+			{:then}
+				<button on:click|once={claimCard}>Claim</button>
+			{/await}
 		{/if}
 	</div>
 </dialog>
