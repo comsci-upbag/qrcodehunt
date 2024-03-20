@@ -31,18 +31,18 @@ export async function POST(event) {
 
 	const post = user?.email
 		? await prisma.card.create({
-			data: {
-				cardNumber: cardNumber,
-				User: { connect: { email: user.email } }
-			},
-			include: {
-				User: {
-					include: {
-						cards: true
+				data: {
+					cardNumber: cardNumber,
+					User: { connect: { email: user.email } }
+				},
+				include: {
+					User: {
+						include: {
+							cards: true
+						}
 					}
 				}
-			}
-		})
+		  })
 		: null;
 
 	if (post && user?.email && post.User?.cards) {
@@ -57,9 +57,9 @@ export async function POST(event) {
 					email: user.email
 				},
 				data: {
-					firstCard: new Date(),
+					firstCard: new Date()
 				}
-			})
+			});
 		}
 
 		if (isLastCard) {
@@ -68,9 +68,9 @@ export async function POST(event) {
 					email: user.email
 				},
 				data: {
-					lastCard: new Date(),
+					lastCard: new Date()
 				}
-			})
+			});
 		}
 	}
 

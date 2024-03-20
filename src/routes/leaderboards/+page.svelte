@@ -5,12 +5,16 @@
 	export let data: PageServerData;
 
 	const userDuration = (user: User) => {
-		const duration = user.duration!;
-		const days = Math.floor(duration / (60 * 60 * 24));
-		const hours = Math.floor((duration % (60 * 60 * 24)) / (60 * 60));
-		const minutes = Math.floor(duration / 60);
-		const seconds = duration % 60;
-		return `${days > 0 ? `${days}d ` : ''}${hours > 0 ? `${hours}h ` : ''}${minutes}m ${seconds}s`;
+		const duration = user.duration;
+		if (!duration) return '0s';
+
+		const days = Math.floor(duration / (1000 * 60 * 60 * 24));
+		const hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+		const seconds = Math.floor((duration % (1000 * 60)) / 1000);
+		return `${days > 0 ? `${days}d ` : ''}${hours > 0 ? `${hours}h ` : ''}${
+			minutes > 0 ? `${minutes}m ` : ''
+		}${seconds > 0 ? `${seconds}s` : ''}`;
 	};
 </script>
 
@@ -85,6 +89,8 @@
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
+		padding-bottom: 20px;
+		text-overflow: ellipsis;
 	}
 
 	.user {

@@ -2,7 +2,13 @@ import type { PageServerLoad } from './$types';
 import { prisma } from '$lib/server/prisma';
 
 export const load: PageServerLoad = async (event) => {
-	const users = await prisma.user.findMany();
+	const users = await prisma.user.findMany({
+		where: {
+			duration: {
+				not: null
+			}
+		}
+	});
 
 	users.sort((a, b) => {
 		if (a.duration && b.duration) {
