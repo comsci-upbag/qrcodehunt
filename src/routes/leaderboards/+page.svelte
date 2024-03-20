@@ -21,7 +21,7 @@
 <div class="container">
 	<div class="card">
 		<h1>Leaderboards</h1>
-		<p>View the top 10 players who have collected the most cards.</p>
+		<p>View the top players who have collected the cards the fastest!</p>
 
 		<div class="leaderboard">
 			{#each data.users as user}
@@ -86,17 +86,17 @@
 	.leaderboard {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 		gap: 10px;
-		padding-bottom: 20px;
+		padding: 10px;
 		text-overflow: ellipsis;
 	}
 
 	.user {
+		width: 100%;
 		display: grid;
-		grid-template-columns: 1fr 3fr 2fr;
-		align-items: center;
+		grid-template-columns: 1fr 4fr 4fr;
+		align-content: center;
+		justify-content: center;
 		gap: 10px;
 	}
 
@@ -107,6 +107,12 @@
 	}
 
 	.user h2 {
+		width: 140px;
+		overflow: hidden;
+		word-wrap: none;
+		white-space: nowrap;
+
+		text-overflow: ellipsis;
 		font-family: 'Poppins', sans-serif;
 		font-size: 16px;
 		font-weight: bold;
