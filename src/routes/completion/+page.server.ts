@@ -12,26 +12,31 @@ export const load: PageServerLoad = async (event) => {
 		throw redirect(303, '/');
 	}
 
-	const user = session?.user?.email ? await prisma.user.findUnique({
-		where: {
-			email: session?.user?.email
-		}
-	}) : null;
+	const user = session?.user?.email
+		? await prisma.user.findUnique({
+				where: {
+					email: session?.user?.email
+				}
+		  })
+		: null;
 
 	if (!user) {
 		throw redirect(303, '/');
 	}
 
-	const updatedUser = await prisma.user.update({
-		where: {
-			email: user.email!
-		},
-		data: {
-			duration: user.lastCard!.getTime() - user.firstCard!.getTime()
-		}
-	});
+	const updatedUser =
+		user.lastCard && user.firstCard
+			? await prisma.user.update({
+					where: {
+						email: user.email!
+					},
+					data: {
+						duration: user.lastCard.getTime() - user.firstCard.getTime()
+					}
+			  })
+			: null;
 
-	if (!updatedUser.duration) {
+	if (!updatedUser?.duration) {
 		return { session: await event.locals.getSession(), failure: true };
 	}
 

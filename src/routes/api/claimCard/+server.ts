@@ -31,35 +31,46 @@ export async function POST(event) {
 
 	const post = user?.email
 		? await prisma.card.create({
-				data: {
-					cardNumber: cardNumber,
-					User: { connect: { email: user.email } }
+			data: {
+				cardNumber: cardNumber,
+				User: { connect: { email: user.email } }
+			},
+			include: {
+				User: {
+					include: {
+						cards: true
+					}
 				}
-		  })
+			}
+		})
 		: null;
 
-	if (post) {
-		const userCards = (await (await event.fetch('/api/getUserCards')).json()).cards;
-
-		if (!userCards) {
-			return json({ isCardClaimed: false });
-		}
+	if (post && user?.email && post.User?.cards) {
+		const userCards = post.User?.cards;
 
 		const isFirstCard = userCards?.length === 1;
 		const isLastCard = userCards?.length === maxCards;
 
-		const userUpdate = await prisma.user.update({
-			where: {
-				id: post.userId!
-			},
-			data: {
-				firstCard: isFirstCard ? new Date() : null,
-				lastCard: isLastCard ? new Date() : null
-			}
-		});
+		if (isFirstCard) {
+			await prisma.user.update({
+				where: {
+					email: user.email
+				},
+				data: {
+					firstCard: new Date(),
+				}
+			})
+		}
 
-		if (!userUpdate) {
-			return json({ isCardClaimed: false });
+		if (isLastCard) {
+			await prisma.user.update({
+				where: {
+					email: user.email
+				},
+				data: {
+					lastCard: new Date(),
+				}
+			})
 		}
 	}
 

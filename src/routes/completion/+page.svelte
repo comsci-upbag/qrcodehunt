@@ -53,7 +53,7 @@
 	}
 
 	a {
-		color: var(--primary);
+		color: var(--black);
 		font-size: 16px;
 		font-family: Poppins;
 		font-weight: 700;
