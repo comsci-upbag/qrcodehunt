@@ -1,17 +1,28 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { availableCardImages } from '$lib/globals';
+	import { availableCardImages, hints } from '$lib/globals';
+
+	import Card from './Card.svelte';
 </script>
 
 <div class="container" role="none">
-	<h1>Cards Collected</h1>
+	<h1>Collectible Cards</h1>
 	<div class="cards">
 		<div>
-			{#key $page.data.userCards}
+			<!-- {#key $page.data.userCards}
 				{#each $page.data.userCards as index}
 					<img class="card" src={availableCardImages[index]} alt="" />
 				{/each}
-			{/key}
+			{/key} -->
+			{#each availableCardImages as answer, i}
+				<Card
+					{answer}
+					clue={hints[i]}
+					flip={$page.data.userCards.includes(i)}
+					flippable={$page.data.userCards.includes(i)}
+				/>
+				<!-- <img class="card" src={image} alt="" /> -->
+			{/each}
 		</div>
 	</div>
 </div>
@@ -79,7 +90,7 @@
 		background: transparent;
 	}
 
-	.card {
+	/* .card {
 		scroll-snap-align: start;
 		flex-shrink: 0;
 		width: 300px;
@@ -91,5 +102,5 @@
 		transform: scale(1);
 		transition: transform 0.5s;
 		position: relative;
-	}
+	} */
 </style>

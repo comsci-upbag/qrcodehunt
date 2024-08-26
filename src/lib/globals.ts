@@ -4,7 +4,7 @@ import card2 from '$lib/assets/cards/12sJG5Q4LG.png';
 import card3 from '$lib/assets/cards/vfBf73I3Gv.png';
 import card4 from '$lib/assets/cards/Ut4atEsj1e.png';
 import card5 from '$lib/assets/cards/cbaiifqwbh.png';
-// import card6 from '$lib/assets/cards/1TbQWUCNdv.png';
+import card6 from '$lib/assets/cards/1TbQWUCNdv.png';
 import card7 from '$lib/assets/cards/K6PWhgUu3I.png';
 import card8 from '$lib/assets/cards/t7VZ7e3oZm.png';
 import card9 from '$lib/assets/cards/XApsMTHqag.png';
@@ -15,6 +15,23 @@ import card13 from '$lib/assets/cards/rJImeZWlwE.png';
 import card14 from '$lib/assets/cards/RDOx0ch6LB.png';
 import card15 from '$lib/assets/cards/mdJuDFeOwn.png';
 
+import hint0 from '$lib/assets/hints/DU7SM5tvXh.png';
+import hint1 from '$lib/assets/hints/CXD4SC8uJP.png';
+import hint2 from '$lib/assets/hints/12sJG5Q4LG.png';
+import hint3 from '$lib/assets/hints/vfBf73I3Gv.png';
+import hint4 from '$lib/assets/hints/Ut4atEsj1e.png';
+import hint5 from '$lib/assets/hints/cbaiifqwbh.png';
+import hint6 from '$lib/assets/hints/1TbQWUCNdv.png';
+import hint7 from '$lib/assets/hints/K6PWhgUu3I.png';
+import hint8 from '$lib/assets/hints/t7VZ7e3oZm.png';
+import hint9 from '$lib/assets/hints/XApsMTHqag.png';
+import hint10 from '$lib/assets/hints/aslvA5c4Ci.png';
+import hint11 from '$lib/assets/hints/lZFgF3FqRj.png';
+import hint12 from '$lib/assets/hints/J45kQ77w8L.png';
+import hint13 from '$lib/assets/hints/rJImeZWlwE.png';
+import hint14 from '$lib/assets/hints/RDOx0ch6LB.png';
+import hint15 from '$lib/assets/hints/mdJuDFeOwn.png';
+
 export const availableCardImages = [
 	card0,
 	card1,
@@ -22,7 +39,7 @@ export const availableCardImages = [
 	card3,
 	card4,
 	card5,
-	// card6,
+	card6,
 	card7,
 	card8,
 	card9,
@@ -35,3 +52,22 @@ export const availableCardImages = [
 ];
 export const maxCards = availableCardImages.length;
 export const formLink = 'https://forms.gle/4KGhnwS3cGpk3A846';
+
+export const hints = [
+	hint0,
+	hint1,
+	hint2,
+	hint3,
+	hint4,
+	hint5,
+	hint6,
+	hint7,
+	hint8,
+	hint9,
+	hint10,
+	hint11,
+	hint12,
+	hint13,
+	hint14,
+	hint15
+];
