@@ -34,6 +34,8 @@
 
 		<Scanner bind:totalCardsCollected />
 	</div>
+
+	<a href="/leaderboards">View Leaderboards</a>
 	<Dock />
 </div>
 
@@ -54,6 +56,13 @@
 		font-size: x-large;
 		font-weight: bold;
 		color: var(--primary);
+	}
+
+	.container a {
+		font-family: 'Poppins', sans-serif;
+		font-size: small;
+		font-weight: bold;
+		color: var(--white);
 	}
 
 	.card {
