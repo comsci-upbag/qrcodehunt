@@ -25,8 +25,8 @@
 
 		<a href="/leaderboards">View Leaderboards</a>
 
-		<p>To claim your reward, please accomplish the form below.</p>
-		<button on:click={redirectToForm}>Open Google Forms</button>
+		<!-- <p>To claim your reward, please accomplish the form below.</p>
+		<button on:click={redirectToForm}>Open Google Forms</button> -->
 	</div>
 </div>
 
