@@ -33,6 +33,8 @@
 			{/each}
 		</div>
 	</div>
+
+	<a href="/">Go Back</a>
 </div>
 
 <style>
@@ -46,6 +48,14 @@
 		align-items: center;
 		justify-content: center;
 		margin: auto;
+	}
+
+	.container a {
+		margin: 16px;
+		font-family: 'Poppins', sans-serif;
+		font-size: small;
+		font-weight: bold;
+		color: var(--white);
 	}
 
 	h1 {
