@@ -8,7 +8,7 @@
 :root {
 	--black: rgba(0, 0, 0, 0.8);
 	--white: rgba(255, 255, 255, 0.8);
-	--primary: rgba(255, 0, 0, 1);
+	--primary: rgb(204, 0, 255, 1);
 	--secondary: rgba(31, 38, 135, 0.37);
 }
 

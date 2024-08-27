@@ -14,12 +14,12 @@
 </script>
 
 <svelte:head>
-	<title>QR Code Hunt</title>
+	<title>Queue Our Campus</title>
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
 <div class="container">
-	<h1 class="title">QR Code Hunt</h1>
+	<h1 class="title">Queue Our Campus</h1>
 	<div class="card">
 		<div class="info-bar">
 			<div class="profile-bar">

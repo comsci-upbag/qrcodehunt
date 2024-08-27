@@ -1,6 +1,6 @@
 # [qrcodehunt](https://qrcodehunt.vercel.app)
 
-COMSCI&#8203;@UP.BAG's project for the QR Code Hunt 2023 at the University of the Philippines Baguio. The website is available at [qrcodehunt.vercel.app](https://qrcodehunt.vercel.app).
+COMSCI&#8203;@UP.BAG's project for the Queue Our Campus 2023 at the University of the Philippines Baguio. The website is available at [qrcampus.vercel.app](https://qrcampus.vercel.app).
 
 ## Dependencies
 

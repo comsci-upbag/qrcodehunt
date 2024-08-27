@@ -8,13 +8,13 @@
 </script>
 
 <svelte:head>
-	<title>QR Code Hunt</title>
+	<title>Queue Our Campus</title>
 	<meta name="description" content="COMSCI@UP.BAG" />
 </svelte:head>
 
 <div class="container">
 	<div class="card">
-		<h1>QR Code Hunt</h1>
+		<h1>Queue Our Campus</h1>
 		<button on:click={handleSignIn}>
 			Sign in with Google
 			<img src={google} alt="" />
@@ -51,7 +51,7 @@
 
 	.card h1 {
 		color: var(--primary);
-		font-size: 34px;
+		font-size: 28px;
 		font-family: Poppins;
 		font-weight: 700;
 		word-wrap: break-word;
