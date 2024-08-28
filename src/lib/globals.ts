@@ -34,14 +34,14 @@ import hint15 from '$lib/assets/hints/mdJuDFeOwn.png';
 
 export const availableCardImages = [
 	card0,
-	card1,
+	// card1,
 	card2,
 	card3,
 	card4,
 	card5,
 	card6,
 	card7,
-	card8,
+	// card8,
 	card9,
 	card10,
 	card11,
@@ -55,14 +55,14 @@ export const formLink = 'https://forms.gle/4KGhnwS3cGpk3A846';
 
 export const hints = [
 	hint0,
-	hint1,
+	// hint1,
 	hint2,
 	hint3,
 	hint4,
 	hint5,
 	hint6,
 	hint7,
-	hint8,
+	// hint8,
 	hint9,
 	hint10,
 	hint11,
