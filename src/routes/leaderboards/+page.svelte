@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { User } from '@prisma/client';
 	import type { PageServerData } from './$types';
+	import { maxCards } from '$lib/globals';
 
 	export let data: PageServerData;
 
@@ -28,7 +29,9 @@
 				<div class="user">
 					<img src={user.image} alt="" />
 					<h2>{user.name}</h2>
-					<p>{userDuration(user)}</p>
+					<p>
+						{#if user.duration}{userDuration(user)}{:else}{user.cards.length}/{maxCards}{/if}
+					</p>
 				</div>
 			{/each}
 		</div>

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { confetti } from '@neoconfetti/svelte';
-	import { formLink } from '$lib/globals';
+	// import { formLink } from '$lib/globals';
 
 	import { availableCardImages } from '$lib/globals';
 
-	const redirectToForm = () => {
-		window.location.href = formLink;
-	};
+	// const redirectToForm = () => {
+	// 	window.location.href = formLink;
+	// };
 </script>
 
 <div use:confetti={{ stageHeight: 1000 }} />
@@ -135,7 +135,7 @@
 		position: relative;
 	}
 
-	button {
+	/* button {
 		width: 100%;
 		color: rgba(0, 0, 0, 0.5);
 		font-size: 16px;
@@ -155,5 +155,5 @@
 	button:hover {
 		transition: all 0.5s;
 		background: rgba(153, 134, 193, 0.5);
-	}
+	} */
 </style>

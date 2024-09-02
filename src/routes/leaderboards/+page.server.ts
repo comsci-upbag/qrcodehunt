@@ -4,9 +4,15 @@ import { prisma } from '$lib/server/prisma';
 export const load: PageServerLoad = async (event) => {
 	const users = await prisma.user.findMany({
 		where: {
-			duration: {
-				not: null
-			}
+			// duration: {
+			// 	not: null
+			// },
+			// firstCard: {
+			// 	not: null
+			// }
+		},
+		include: {
+			cards: true
 		}
 	});
 
@@ -14,7 +20,11 @@ export const load: PageServerLoad = async (event) => {
 		if (a.duration && b.duration) {
 			return a.duration - b.duration;
 		} else {
-			return 0;
+			if (a.cards.length > b.cards.length) {
+				return -1;
+			} else {
+				return 0;
+			}
 		}
 	});
 
